@@ -17,13 +17,26 @@
 /* ==== SETTINGS — everything is changed here, in ONE place ==== */
 window.CONTRACT = "";   /* contract address. empty = "soon" */
 window.TWITTER  = "";   /* link to X. empty = plain x.com link */
+window.BUY_URL  = "";   /* where the BUY buttons go. empty = button stays inert */
+window.CHART_URL= "";   /* where CHART / DEX goes. empty = built from CONTRACT on dexscreener */
 document.addEventListener('DOMContentLoaded', function(){
   var CA=(window.CONTRACT||"").trim(), TW=(window.TWITTER||"").trim();
+  var BUY=(window.BUY_URL||"").trim();
+  var CHART=(window.CHART_URL||"").trim() || (CA ? 'https://dexscreener.com/solana/'+CA : "");
+  function wire(sel, url){
+    document.querySelectorAll(sel).forEach(function(a){
+      if(url){ a.href=url; a.target='_blank'; a.rel='noopener'; a.classList.remove('soon'); }
+      else {
+        a.href='#'; a.classList.add('soon'); a.title='soon';
+        a.addEventListener('click', function(e){ e.preventDefault(); });
+      }
+    });
+  }
+  wire('a[data-buy]', BUY);
+  wire('a[data-chart]', CHART);
   document.querySelectorAll('a[href]').forEach(function(a){
     var h=a.getAttribute('href')||"";
-    if(h.indexOf('pump.fun')>-1){ if(CA) a.href='https://pump.fun/coin/'+CA; }
-    else if(h.indexOf('dexscreener')>-1){ if(CA) a.href='https://dexscreener.com/solana/'+CA; }
-    else if(h.indexOf('x.com')>-1||h.indexOf('twitter.com')>-1){ if(TW) a.href=TW; }
+    if(h.indexOf('x.com')>-1||h.indexOf('twitter.com')>-1){ if(TW) a.href=TW; }
   });
   if(CA){
     document.querySelectorAll('.ca b, .ca-val').forEach(function(b){ b.textContent=CA; });
@@ -85,6 +98,9 @@ button{font-family:var(--ui); cursor:pointer}
 .btn.lime{background:linear-gradient(#d6ff7a,var(--lime)); border-color:#1d2a04; box-shadow:inset 1px 1px 0 #f2ffd0, inset -1px -1px 0 #6d9c1a}
 .btn.big{padding:11px 18px; font-size:14px}
 .btn.blue{background:linear-gradient(#5db4f7,#1a72c8); color:#fff; text-shadow:1px 1px 0 rgba(0,0,0,.45); box-shadow:inset 1px 1px 0 #a8dcff, inset -1px -1px 0 #0d3f74}
+a.soon{cursor:default}
+a.btn.soon:active{transform:none; box-shadow:inset 1px 1px 0 var(--hi), inset -1px -1px 0 var(--sh)}
+a.btn.lime.soon:active{box-shadow:inset 1px 1px 0 #f2ffd0, inset -1px -1px 0 #6d9c1a}
 
 /* ---------- desktop icons ---------- */
 #icons{position:absolute; left:16px; top:16px; display:flex; flex-direction:column; gap:16px; z-index:2}
@@ -331,9 +347,9 @@ footer small{display:block; margin-top:14px; font:12px var(--ui); color:#a8d6d1}
           <p>I repaired it properly — new keyboard, forty-one screws out and forty-three back in — and then I noticed the drive was still sitting there private, which looked like something nobody had got around to yet. So I asked whether he would like help. The dialog had two buttons and I labelled both of them Yes, because I did not want him to pick the wrong one and feel bad about it later.</p>
         </div>
         <div class="cta">
-          <a class="btn lime big" href="https://pump.fun">BUY $HENTCLIPPY</a>
+          <a class="btn lime big" data-buy href="#">BUY $HENTCLIPPY</a>
           <a class="btn big" href="https://x.com">X / TWITTER</a>
-          <a class="btn big" href="https://dexscreener.com">CHART</a>
+          <a class="btn big" data-chart href="#">CHART</a>
         </div>
         <div class="ca">CA: <b class="ca-val">soon — <em>he is preparing the announcement, and has already sent it</em></b></div>
 
@@ -390,7 +406,7 @@ footer small{display:block; margin-top:14px; font:12px var(--ui); color:#a8d6d1}
             <h3>ALL 8 ITEMS SHARED WITH EVERYONE</h3>
             <p>The drive is empty, the internet is full, and the customer has still not come to collect the laptop. It is on the shelf by the window with a ticket taped to the lid, and the name on the ticket is his.</p>
             <p>Day six hundred and eleven. You're welcome.</p>
-            <div class="ghud"><a class="btn lime" href="https://pump.fun">BUY $HENTCLIPPY</a><button class="btn" id="againbtn">Run it again</button></div>
+            <div class="ghud"><a class="btn lime" data-buy href="#">BUY $HENTCLIPPY</a><button class="btn" id="againbtn">Run it again</button></div>
           </div>
         </div>
       </div>
@@ -496,9 +512,9 @@ footer small{display:block; margin-top:14px; font:12px var(--ui); color:#a8d6d1}
     <div class="badge">$HENTCLIPPY · BODEN LAPTOP · SHOP OPEN</div>
     <div class="ca">CA: <b class="ca-val">soon — <em>he is preparing the announcement, and has already sent it</em></b></div>
     <div class="ghud" style="justify-content:center">
-      <a class="btn lime" href="https://pump.fun">BUY</a>
+      <a class="btn lime" data-buy href="#">BUY</a>
       <a class="btn" href="https://x.com">X</a>
-      <a class="btn" href="https://dexscreener.com">DEX</a>
+      <a class="btn" data-chart href="#">DEX</a>
     </div>
     <small>hentclippy · repairs while you wait · shares while you don't</small>
   </div>
@@ -513,9 +529,9 @@ footer small{display:block; margin-top:14px; font:12px var(--ui); color:#a8d6d1}
     <li><a href="#how">📝&nbsp; How it happened</a></li>
     <li><a href="#terms">📜&nbsp; The agreement</a></li>
     <hr>
-    <li><a href="https://pump.fun">💊&nbsp; Buy $HENTCLIPPY</a></li>
+    <li><a data-buy href="#">💊&nbsp; Buy $HENTCLIPPY</a></li>
     <li><a href="https://x.com">🐦&nbsp; Follow on X</a></li>
-    <li><a href="https://dexscreener.com">📈&nbsp; Chart</a></li>
+    <li><a data-chart href="#">📈&nbsp; Chart</a></li>
   </ul>
 </div>
 
