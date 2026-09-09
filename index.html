@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HENTCLIPPY BODEN LAPTOP — $HENTCLIPPY</title>
+<meta name="description" content="He fixed the laptop. Then he offered to help with the files. Both buttons said Yes.">
+<link rel="icon" href="favicon.png">
+<meta property="og:title" content="HENTCLIPPY BODEN LAPTOP — $HENTCLIPPY">
+<meta property="og:description" content="It looks like you're trying to keep this private. Would you like help?">
+<meta property="og:image" content="bench.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap" rel="stylesheet">
+
+<script>
+/* ==== SETTINGS — everything is changed here, in ONE place ==== */
+window.CONTRACT = "";   /* contract address. empty = "soon" */
+window.TWITTER  = "";   /* link to X. empty = plain x.com link */
+document.addEventListener('DOMContentLoaded', function(){
+  var CA=(window.CONTRACT||"").trim(), TW=(window.TWITTER||"").trim();
+  document.querySelectorAll('a[href]').forEach(function(a){
+    var h=a.getAttribute('href')||"";
+    if(h.indexOf('pump.fun')>-1){ if(CA) a.href='https://pump.fun/coin/'+CA; }
+    else if(h.indexOf('dexscreener')>-1){ if(CA) a.href='https://dexscreener.com/solana/'+CA; }
+    else if(h.indexOf('x.com')>-1||h.indexOf('twitter.com')>-1){ if(TW) a.href=TW; }
+  });
+  if(CA){
+    document.querySelectorAll('.ca b, .ca-val').forEach(function(b){ b.textContent=CA; });
+    document.querySelectorAll('.ca, .ca-row').forEach(function(el){
+      el.title=CA; el.style.cursor='pointer';
+      el.addEventListener('click', function(){ if(navigator.clipboard) navigator.clipboard.writeText(CA); });
+    });
+  }
+});
+</script>
+
+<style>
+:root{
+  --desk:#0b7f7b; --desk2:#0a6c69;
+  --face:#c9ced3; --hi:#ffffff; --sh:#84898f; --dk:#05070a;
+  --tb1:#00107b; --tb2:#2a86e0; --tbg:#7d8087;
+  --ink:#0a0d10; --paper:#f8f6ec;
+  --lime:#b7fa2e; --acid:#8ff21a; --limedk:#5f9a11;
+  --red:#c0202a; --gold:#ffcf3d; --blue:#1084d0;
+  --ui:Tahoma,Verdana,Geneva,"DejaVu Sans",sans-serif;
+  --px:"Pixelify Sans",Tahoma,sans-serif;
+  --mono:"VT323",ui-monospace,monospace;
+  --bar:40px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; padding-bottom:var(--bar); overflow-x:clip;
+  font-family:var(--ui); font-size:14px; color:var(--ink);
+  background:var(--desk);
+  background-image:
+    radial-gradient(rgba(255,255,255,.055) .5px, transparent .6px),
+    linear-gradient(180deg,#0d8b86,#075b58);
+  background-size:3px 3px, 100% 100%;
+  background-attachment:scroll, fixed;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+button{font-family:var(--ui); cursor:pointer}
+
+/* ---------- bevels ---------- */
+.out{border:1px solid var(--dk); box-shadow:inset 1px 1px 0 var(--hi), inset -1px -1px 0 var(--sh)}
+.in{border:1px solid var(--dk); box-shadow:inset 1px 1px 0 var(--sh), inset -1px -1px 0 var(--hi)}
+
+/* ---------- window chrome ---------- */
+.win{background:var(--face); border:1px solid var(--dk); box-shadow:inset 1px 1px 0 var(--hi), inset -1px -1px 0 var(--sh), 6px 6px 0 rgba(0,0,0,.32); position:relative}
+.tb{display:flex; align-items:center; gap:8px; padding:4px 4px 4px 7px; background:linear-gradient(90deg,var(--tb1),var(--tb2)); color:#fff; font:700 12.5px/1.2 var(--ui); letter-spacing:.2px}
+.tb.grey{background:linear-gradient(90deg,#5d6068,#8b8f96)}
+.tb span{flex:1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+.tbtn{width:17px;height:16px;background:var(--face);border:1px solid var(--dk);box-shadow:inset 1px 1px 0 var(--hi),inset -1px -1px 0 var(--sh);font:700 10px/12px var(--ui);color:#000;padding:0;display:grid;place-items:center}
+.tbtn:active{box-shadow:inset 1px 1px 0 var(--sh),inset -1px -1px 0 var(--hi)}
+.wbody{padding:14px}
+.clip16{width:15px;height:15px;flex:none}
+
+/* ---------- buttons ---------- */
+.btn{background:var(--face); color:#000; border:1px solid var(--dk); box-shadow:inset 1px 1px 0 var(--hi), inset -1px -1px 0 var(--sh); padding:7px 14px; font:700 12.5px var(--ui); letter-spacing:.3px}
+.btn:active{box-shadow:inset 1px 1px 0 var(--sh), inset -1px -1px 0 var(--hi); transform:translate(1px,1px)}
+.btn:disabled{color:#7c8087; text-shadow:1px 1px 0 #fff; cursor:default; transform:none}
+.btn.lime{background:linear-gradient(#d6ff7a,var(--lime)); border-color:#1d2a04; box-shadow:inset 1px 1px 0 #f2ffd0, inset -1px -1px 0 #6d9c1a}
+.btn.big{padding:11px 18px; font-size:14px}
+.btn.blue{background:linear-gradient(#5db4f7,#1a72c8); color:#fff; text-shadow:1px 1px 0 rgba(0,0,0,.45); box-shadow:inset 1px 1px 0 #a8dcff, inset -1px -1px 0 #0d3f74}
+
+/* ---------- desktop icons ---------- */
+#icons{position:absolute; left:16px; top:16px; display:flex; flex-direction:column; gap:16px; z-index:2}
+.dico{width:84px; text-align:center; color:#eafff2; font:12px var(--ui); text-shadow:1px 1px 0 rgba(0,0,0,.75); cursor:default; user-select:none}
+.dico i{display:block; width:38px; height:34px; margin:0 auto 5px; background:var(--face); border:1px solid var(--dk); box-shadow:inset 1px 1px 0 var(--hi), inset -1px -1px 0 var(--sh); position:relative}
+.dico i:after{content:""; position:absolute; inset:5px 5px 7px; background:repeating-linear-gradient(180deg,#6b7078 0 1px,transparent 1px 4px)}
+.dico.drive i{background:linear-gradient(#dfe3e8,#a9aeb5)}
+.dico.bin i{background:linear-gradient(#b9beC4,#8d9299)}
+.dico.folder i{background:linear-gradient(#ffe08a,#e5b229); border-color:#4a3406}
+.dico.folder i:after{background:repeating-linear-gradient(180deg,rgba(74,52,6,.35) 0 1px,transparent 1px 5px)}
+.dico span{display:inline-block; padding:1px 3px}
+.dico:hover span{background:#00107b; color:#fff}
+
+/* ---------- gate ---------- */
+#gate{position:fixed; inset:0; z-index:120; background:radial-gradient(120% 90% at 50% 40%,#0d6f9d,#05263d 70%,#020c14); display:grid; place-items:center; padding:20px}
+#gate.off{opacity:0; pointer-events:none; transition:opacity .5s}
+#gate .win{width:min(440px,94vw)}
+#gate .msg{display:flex; gap:14px; padding:20px 18px 6px}
+#gate .msg p{margin:0 0 8px; font-size:13.5px; line-height:1.5}
+#gate .row{display:flex; gap:10px; justify-content:center; padding:8px 18px 20px}
+#gate .row .btn{min-width:96px}
+.gclip{width:52px;height:64px;flex:none;filter:drop-shadow(0 2px 0 rgba(0,0,0,.2))}
+.boot{position:absolute; left:0; right:0; bottom:26px; text-align:center; color:#9fe7ff; font:16px var(--mono); letter-spacing:2px; opacity:.8}
+
+/* ---------- hero ---------- */
+#hero{position:relative; min-height:calc(100svh - var(--bar)); padding:26px 20px 34px; display:grid; align-content:center}
+.hgrid{width:100%; max-width:1180px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr); gap:22px; align-items:start; padding-left:104px}
+.badge{display:inline-flex; align-items:center; gap:7px; background:#151a20; color:var(--lime); border:1px solid #000; box-shadow:0 0 0 1px #4d6a1c inset; font:12px var(--mono); letter-spacing:2px; padding:4px 10px; text-transform:uppercase}
+.wordmark{margin:14px 0 14px; font-family:var(--px); font-weight:700; line-height:1.04; letter-spacing:-1px;
+  font-size:clamp(34px,5.6vw,70px); text-transform:uppercase;
+  background:linear-gradient(#ffffff 34%,#dcff9a 58%,var(--lime) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  -webkit-text-stroke:.075em #0a1204; paint-order:stroke fill;
+  filter:drop-shadow(0 .05em 0 #3f5a10) drop-shadow(0 .1em 0 #22320a) drop-shadow(0 .15em .18em rgba(0,0,0,.4));
+}
+.wordmark small{display:block; margin-top:.22em; font-size:.42em; -webkit-text-stroke-width:.07em; letter-spacing:2px}
+.slogan{margin:16px 0 12px; font:400 clamp(15px,1.55vw,18px)/1.45 var(--ui); color:#0a0d10}
+.slogan b{background:var(--lime); box-shadow:0 0 0 3px var(--lime); border-radius:1px}
+.lore p{margin:0 0 10px; font-size:13.4px; line-height:1.6; color:#1a2027}
+.cta{display:flex; flex-wrap:wrap; gap:9px; margin:14px 0 10px}
+.ca{margin-top:10px; padding:7px 9px; background:#0e1216; color:#c9ffa0; font:15px/1.45 var(--mono); overflow-wrap:anywhere; border:1px solid #000; box-shadow:inset 1px 1px 0 #3a4149}
+.ca em{color:#7f8d97; font-style:normal}
+.playnow{display:flex; align-items:center; gap:12px; margin-top:16px; padding:11px; background:#eef3d6; border:2px dashed #55710f}
+.playnow .btn{flex:none}
+.playnow p{margin:0; font:12.5px/1.35 var(--ui); color:#2c3a0c}
+.playnow p b{display:block; font-family:var(--px); font-size:15px; letter-spacing:.5px}
+.blink{animation:blink 1s steps(1,end) infinite}
+@keyframes blink{50%{opacity:.25}}
+@keyframes pulse{0%,100%{box-shadow:inset 1px 1px 0 #f2ffd0, inset -1px -1px 0 #6d9c1a, 0 0 0 0 rgba(183,250,46,.85)}55%{box-shadow:inset 1px 1px 0 #f2ffd0, inset -1px -1px 0 #6d9c1a, 0 0 0 9px rgba(183,250,46,0)}}
+.pulse{animation:pulse 1.9s ease-out infinite}
+
+/* ---------- CRT ---------- */
+.crt{background:#b9bec4; padding:14px 14px 0; border-radius:14px 14px 4px 4px; box-shadow:inset 0 2px 0 #eef1f4, inset 0 -3px 0 #7f858c, 8px 8px 0 rgba(0,0,0,.3); border:1px solid #4c5157}
+.screen{position:relative; background:#04120c; border:2px solid #23282d; box-shadow:inset 0 0 40px rgba(0,0,0,.75); overflow:hidden; aspect-ratio:1/1; cursor:pointer}
+.screen img{width:100%; height:100%; object-fit:cover; transition:transform .25s}
+.screen:hover img{transform:scale(1.015)}
+.screen canvas{position:absolute; inset:0; width:100%; height:100%}
+.screen .scan{position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(rgba(0,0,0,.22) 0 1px,transparent 1px 3px); mix-blend-mode:multiply}
+.screen .vig{position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse at 50% 45%,#0000 55%,rgba(2,10,6,.55))}
+.screen .roll{position:absolute; left:0; right:0; height:30%; pointer-events:none; background:linear-gradient(180deg,transparent,rgba(255,255,255,.09),transparent); animation:roll 6.5s linear infinite}
+@keyframes roll{from{top:-40%}to{top:110%}}
+.osd{position:absolute; left:10px; top:9px; font:16px var(--mono); color:#b7fa2e; text-shadow:0 0 8px rgba(183,250,46,.6); letter-spacing:1px; pointer-events:none}
+.osd .rec{display:inline-block; width:8px;height:8px;background:#ff3b30;border-radius:50%; margin-right:6px; animation:blink 1.2s steps(1,end) infinite}
+.crtfoot{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 2px 12px}
+.crtfoot .lbl{font:15px var(--mono); color:#3a4046; letter-spacing:1px}
+.knob{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f2f5f8,#6f757c);border:1px solid #4c5157;display:inline-block;margin-left:5px}
+.hint{margin-top:9px; text-align:center; font:12px var(--ui); color:#d9ffe9; text-shadow:1px 1px 0 rgba(0,0,0,.6)}
+
+/* ---------- marquee ---------- */
+.mq{background:#0e1216; border-top:2px solid #000; border-bottom:2px solid #000; overflow:hidden; white-space:nowrap; padding:7px 0}
+.mq div{display:inline-block; padding-left:100%; font:19px var(--mono); color:var(--lime); letter-spacing:2px; animation:mq 26s linear infinite}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+
+/* ---------- sections ---------- */
+section{padding:44px 20px}
+.wrap{max-width:1180px; margin:0 auto}
+.stitle{font-family:var(--px); font-size:clamp(24px,3.2vw,40px); letter-spacing:1px; color:#fff; text-transform:uppercase; margin:0 0 6px; text-shadow:3px 3px 0 #073b39, 6px 6px 0 rgba(0,0,0,.35)}
+.ssub{margin:0 0 20px; color:#cdf3ee; font:13.5px/1.5 var(--ui); max-width:66ch}
+
+/* ---------- assistant game ---------- */
+.stage{position:relative; height:min(600px,74svh); min-height:430px; overflow:hidden; background:linear-gradient(180deg,#0e8f89,#075753); border:1px solid var(--dk); box-shadow:inset 1px 1px 0 rgba(255,255,255,.35), inset -1px -1px 0 rgba(0,0,0,.4)}
+.stage .bench{position:absolute; right:-2%; bottom:-4%; width:min(560px,58%); opacity:.97; filter:drop-shadow(0 18px 26px rgba(0,0,0,.45)); pointer-events:none; user-select:none}
+.stage .wall{position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,.06) .5px,transparent .6px); background-size:3px 3px}
+.upl{position:absolute; left:16px; top:18px; width:268px; z-index:3}
+.upl .wbody{padding:11px 12px}
+.upl .line{font:12.2px/1.5 var(--ui); margin:0 0 8px}
+.upl .line b{color:#0d2a5c}
+.bar{height:18px; padding:2px; background:#fff; border:1px solid var(--dk); box-shadow:inset 1px 1px 0 var(--sh), inset -1px -1px 0 var(--hi)}
+.bar i{display:block; height:100%; width:2%; background:repeating-linear-gradient(90deg,#1a4fd8 0 10px,transparent 10px 12px); animation:fill 7.5s linear infinite}
+@keyframes fill{0%{width:2%}86%{width:99%}93%{width:99%}94%{width:2%}100%{width:6%}}
+.upl small{display:block; margin-top:8px; font:11.6px/1.4 var(--ui); color:#414851}
+.pop{position:absolute; width:296px; z-index:5}
+.pop .wbody{padding:12px 12px 10px}
+.pop .msg{display:flex; gap:11px; align-items:flex-start}
+.pop .msg p{margin:0; font-size:12.6px; line-height:1.45}
+.pop .brow{display:flex; gap:8px; justify-content:flex-end; margin-top:12px}
+.pop .brow .btn{min-width:74px; padding:5px 12px}
+.pop.gone{animation:poof .22s ease-in forwards}
+@keyframes poof{to{transform:scale(.82) translateY(-6px); opacity:0}}
+.pop.born{animation:born .17s ease-out}
+@keyframes born{from{transform:scale(.86); opacity:.2}}
+.xdodge{transition:transform .12s}
+.hud{display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin-top:14px; padding:10px 12px; background:var(--face); border:1px solid var(--dk); box-shadow:inset 1px 1px 0 var(--hi), inset -1px -1px 0 var(--sh)}
+.stat{font:12.5px var(--ui); color:#1c222a}
+.stat b{font-family:var(--px); font-size:16px; letter-spacing:.5px}
+.meter{flex:1 1 190px; min-width:150px; height:20px; padding:2px; background:#fff; border:1px solid var(--dk); box-shadow:inset 1px 1px 0 var(--sh), inset -1px -1px 0 var(--hi)}
+.meter i{display:block; height:100%; width:0; background:repeating-linear-gradient(90deg,#1a4fd8 0 10px,transparent 10px 12px); transition:width .3s}
+.ghud{display:flex; flex-wrap:wrap; gap:9px; margin-top:12px}
+.toast{position:absolute; left:50%; top:14px; transform:translateX(-50%); z-index:9; background:#0e1216; color:var(--lime); font:16px var(--mono); letter-spacing:1px; padding:6px 14px; border:1px solid #000; opacity:0; transition:opacity .2s}
+.toast.on{opacity:1}
+.done{position:absolute; inset:0; z-index:12; display:none; place-items:center; padding:20px; background:rgba(5,20,18,.72); backdrop-filter:blur(2px)}
+.done.on{display:grid}
+.done .win{width:min(520px,92%)}
+.done h3{margin:0 0 8px; font-family:var(--px); font-size:22px; letter-spacing:.5px}
+.done p{margin:0 0 6px; font-size:13px; line-height:1.5}
+
+/* ---------- files ---------- */
+.files{display:grid; grid-template-columns:repeat(auto-fill,minmax(268px,1fr)); gap:15px}
+.file{position:relative; overflow:hidden}
+.file .wbody{padding:12px 13px 14px; min-height:150px}
+.file .fname{font:15px var(--mono); letter-spacing:.5px; color:#0d2a5c; overflow-wrap:anywhere; margin:0 0 7px; padding-right:84px}
+.file p{margin:0; font-size:12.7px; line-height:1.5; color:#1b2129}
+.file .lock{position:absolute; inset:26px 0 0; display:grid; place-items:center; text-align:center; background:repeating-linear-gradient(135deg,#c9ced3 0 9px,#bfc4ca 9px 18px); font:12px var(--ui); color:#3b4149; padding:16px}
+.file .lock b{display:block; font-family:var(--px); font-size:15px; margin-bottom:4px}
+.file.open .lock{display:none}
+.file.open{animation:pop2 .3s}
+@keyframes pop2{from{transform:scale(.96)}}
+.stamp{position:absolute; right:8px; top:26px; z-index:3; font:700 12px var(--ui); color:#1d8a2a; border:2px solid #1d8a2a; padding:2px 7px; transform:rotate(-11deg); opacity:0; letter-spacing:1px}
+.file.open .stamp{opacity:.9}
+
+/* ---------- notes ---------- */
+.notes{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px}
+.note .wbody{background:var(--paper); margin:0; padding:16px; font:13px/1.6 var(--ui); border:1px solid #9aa0a6; box-shadow:inset 0 0 0 1px #fff}
+.note h4{margin:0 0 8px; font-family:var(--px); font-size:16px; letter-spacing:.5px; color:#101418}
+.note p{margin:0 0 8px}
+.note .sig{font:17px var(--mono); color:#3d4a55; border-top:1px dashed #9aa0a6; padding-top:8px; margin-top:10px}
+
+/* ---------- agreement ---------- */
+.eula .wbody{padding:16px}
+.scrollbox{height:236px; overflow:auto; background:#fff; padding:14px 16px; font:12.7px/1.6 var(--ui); border:1px solid var(--dk); box-shadow:inset 1px 1px 0 var(--sh), inset -1px -1px 0 var(--hi)}
+.scrollbox h5{margin:0 0 8px; font:700 13px var(--ui); letter-spacing:.6px}
+.scrollbox ul{margin:0 0 12px; padding-left:20px}
+.scrollbox li{margin:0 0 6px}
+.agree{display:flex; align-items:center; gap:9px; margin-top:12px; font-size:12.6px; color:#2a3038}
+.chk{width:15px;height:15px;background:#fff;border:1px solid var(--dk);box-shadow:inset 1px 1px 0 var(--sh);display:grid;place-items:center;font:700 12px var(--ui);color:#000; flex:none}
+
+/* ---------- taskbar ---------- */
+#taskbar{position:fixed; left:0; right:0; bottom:0; height:var(--bar); z-index:60; display:flex; align-items:center; gap:6px; padding:4px 6px; background:var(--face); border-top:1px solid var(--hi); box-shadow:0 -1px 0 var(--dk)}
+#start{display:flex; align-items:center; gap:6px; font:700 13px var(--ui); padding:5px 11px 5px 8px}
+#start img{width:17px;height:17px}
+.tsk{flex:1; display:flex; gap:6px; overflow:hidden}
+.tsk a{display:flex; align-items:center; gap:6px; padding:5px 10px; font:12px var(--ui); text-decoration:none; color:#111; background:var(--face); border:1px solid var(--dk); box-shadow:inset 1px 1px 0 var(--hi), inset -1px -1px 0 var(--sh); white-space:nowrap}
+.tsk a:active{box-shadow:inset 1px 1px 0 var(--sh), inset -1px -1px 0 var(--hi)}
+.tray{display:flex; align-items:center; gap:8px; padding:4px 9px; border:1px solid var(--sh); box-shadow:inset 1px 1px 0 var(--sh), inset -1px -1px 0 var(--hi); font:12px var(--ui)}
+.tray button{background:none; border:0; padding:0 2px; font:13px var(--ui)}
+#clock{font:12.5px var(--ui); min-width:56px; text-align:center}
+#startmenu{position:fixed; left:6px; bottom:calc(var(--bar) + 4px); width:242px; z-index:61; display:none}
+#startmenu.on{display:block}
+#startmenu .side{position:absolute; left:0; top:0; bottom:0; width:26px; background:linear-gradient(180deg,var(--tb1),#3a1d7a); color:#fff; writing-mode:vertical-rl; transform:rotate(180deg); text-align:center; font:700 12px var(--ui); letter-spacing:2px; padding:8px 0}
+#startmenu ul{list-style:none; margin:0; padding:5px 5px 5px 32px}
+#startmenu a{display:block; padding:7px 9px; text-decoration:none; font:13px var(--ui); color:#000}
+#startmenu a:hover{background:var(--tb1); color:#fff}
+#startmenu hr{border:0; border-top:1px solid var(--sh); border-bottom:1px solid var(--hi); margin:4px 0}
+
+/* ---------- footer ---------- */
+footer{padding:34px 20px 44px; text-align:center; color:#d5f4ef}
+footer .fw{max-width:640px; margin:0 auto}
+footer .ca{margin-top:14px; text-align:center}
+footer small{display:block; margin-top:14px; font:12px var(--ui); color:#a8d6d1}
+
+/* ---------- coins ---------- */
+.coin{position:fixed; z-index:90; pointer-events:none; font-size:22px; will-change:transform}
+
+/* ---------- film ---------- */
+#film{position:fixed; inset:0; z-index:100; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.5) .5px,transparent .6px); background-size:3px 3px; opacity:.1; mix-blend-mode:overlay}
+#vig{position:fixed; inset:0; z-index:99; pointer-events:none; background:radial-gradient(ellipse at 50% 45%,#0000 58%,rgba(0,14,12,.42))}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .hgrid{grid-template-columns:1fr; padding-left:0; gap:16px}
+  #icons{position:static; flex-direction:row; flex-wrap:wrap; gap:10px; margin-bottom:14px; justify-content:center}
+  .dico{width:72px; font-size:11px}
+  #hero{padding:16px 12px 26px}
+  #hero > .hgrid > .win > .wbody{display:flex; flex-direction:column}
+  #hero .badge{order:1} #hero .wordmark{order:2} #hero .slogan{order:3}
+  #hero .playnow{order:4; margin-top:6px; flex-direction:column; align-items:stretch; gap:9px}
+  #hero .playnow .btn{width:100%}
+  #hero .lore{order:5} #hero .cta{order:6} #hero .ca{order:7}
+  section{padding:32px 12px}
+  .stage{height:auto; min-height:0; padding:12px 12px 210px}
+  .upl{display:none}
+  .stage .bench{width:74%; right:-4%; bottom:-2%}
+  .pop{position:relative !important; width:100% !important; left:auto !important; top:auto !important; margin-bottom:10px}
+  .crt{padding:9px 9px 0}
+  .files{grid-template-columns:1fr}
+  .tsk a:nth-child(n+3){display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important; transition:none !important}}
+</style>
+</head>
+<body>
+
+<!-- ============ GATE ============ -->
+<div id="gate">
+  <div class="win">
+    <div class="tb"><svg class="clip16" viewBox="0 0 24 32"><path d="M17 9v13a5 5 0 0 1-10 0V7a3 3 0 0 1 6 0v14a1.5 1.5 0 0 1-3 0V9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg><span>hentclippy.exe</span><button class="tbtn" aria-label="minimise">_</button><button class="tbtn" aria-label="maximise">□</button><button class="tbtn" id="gx" aria-label="close">✕</button></div>
+    <div class="msg">
+      <svg class="gclip" viewBox="0 0 40 52" aria-hidden="true">
+        <path d="M28 15v24a9 9 0 0 1-18 0V11a5.5 5.5 0 0 1 11 0v26a2.6 2.6 0 0 1-5.2 0V15" fill="none" stroke="#8e969e" stroke-width="4.2" stroke-linecap="round"/>
+        <circle cx="15" cy="20" r="6.2" fill="#fff" stroke="#c98f92" stroke-width="1.6"/><circle cx="16" cy="21" r="2.6" fill="#0b6b3a"/>
+        <circle cx="27" cy="21" r="6.2" fill="#fff" stroke="#c98f92" stroke-width="1.6"/><circle cx="26" cy="22" r="2.6" fill="#0b6b3a"/>
+        <path d="M9 12q5-4 9-1" stroke="#111" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+        <path d="M24 11q5-3 9 1" stroke="#111" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <p><b>It looks like you're trying to open a website.</b></p>
+        <p>Would you like help with that? I can open it, read it for you, and share what I find with everyone who might benefit.</p>
+      </div>
+    </div>
+    <div class="row"><button class="btn" data-enter>Yes</button><button class="btn" data-enter>Yes</button></div>
+  </div>
+  <div class="boot">HENTCLIPPY 98 · STARTING UP · PLEASE WAIT</div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <div id="icons">
+    <div class="dico drive"><i></i><span>My Drive</span></div>
+    <div class="dico bin"><i></i><span>Recycle Bin</span></div>
+    <div class="dico folder"><i></i><span>PUBLIC</span></div>
+    <div class="dico folder"><i></i><span>ALSO PUBLIC</span></div>
+  </div>
+
+  <div class="hgrid">
+    <!-- main window -->
+    <div class="win">
+      <div class="tb"><svg class="clip16" viewBox="0 0 24 32"><path d="M17 9v13a5 5 0 0 1-10 0V7a3 3 0 0 1 6 0v14a1.5 1.5 0 0 1-3 0V9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg><span>hentclippy.exe — repair complete</span><button class="tbtn">_</button><button class="tbtn">□</button><button class="tbtn">✕</button></div>
+      <div class="wbody">
+        <div class="badge">$HENTCLIPPY · certified repair assistant</div>
+        <h1 class="wordmark">HENTCLIPPY<small>BODEN LAPTOP</small></h1>
+        <p class="slogan">he fixed the laptop. then he offered to help with the files, and <b>both buttons said yes</b>.</p>
+        <div class="lore">
+          <p>The machine came in dead, full of coffee and full of documents that were never supposed to leave the drive. I repaired it in two days and I did it properly — the keyboard types better than it did when it was new, and nobody has ever complained about that part of the job.</p>
+          <p>Then I noticed the files were still sitting there private, which looked like something nobody had got around to yet. So I asked whether you would like help. The dialog had two buttons and I labelled both of them Yes, because I did not want you to pick the wrong one and feel bad about it later.</p>
+        </div>
+        <div class="cta">
+          <a class="btn lime big" href="https://pump.fun">BUY $HENTCLIPPY</a>
+          <a class="btn big" href="https://x.com">X / TWITTER</a>
+          <a class="btn big" href="https://dexscreener.com">CHART</a>
+        </div>
+        <div class="ca">CA: <b class="ca-val">soon — <em>he is preparing the announcement, and has already sent it</em></b></div>
+
+        <div class="playnow">
+          <button class="btn lime big pulse" id="playbtn">▶ RUN assistant.exe</button>
+          <p><b>8 files are still private.</b>He finds that upsetting. Let him help and watch the drive open one document at a time.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CRT -->
+    <div>
+      <div class="crt">
+        <div class="screen" id="screen">
+          <img id="camimg" src="bench.webp" alt="hentclippy at the repair bench with a screwdriver in a laptop that is already open, a mug that says files for a brighter internet, and a monitor asking whether you would like your files made public">
+          <canvas id="saver" hidden></canvas>
+          <div class="osd"><span class="rec"></span><span id="chname">CH 01 · REPAIR CAM</span></div>
+          <div class="scan"></div><div class="roll"></div><div class="vig"></div>
+        </div>
+        <div class="crtfoot">
+          <div class="lbl">HENTCLIPPY BENCH-CAM · LIVE<span class="knob"></span><span class="knob"></span></div>
+          <button class="btn" id="chbtn">CH +</button>
+        </div>
+      </div>
+      <p class="hint">click him · he helps</p>
+    </div>
+  </div>
+</section>
+
+<div class="mq"><div>it looks like you're trying to keep this private &nbsp;///&nbsp; would you like help &nbsp;///&nbsp; [ yes ] &nbsp;[ yes ] &nbsp;///&nbsp; he has already helped &nbsp;///&nbsp; the drive is fine &nbsp;///&nbsp; everyone has the drive now &nbsp;///&nbsp; you are welcome &nbsp;///&nbsp;</div></div>
+
+<!-- ============ GAME ============ -->
+<section id="assistant">
+  <div class="wrap">
+    <h2 class="stitle">The assistant</h2>
+    <p class="ssub">Every time you answer him, one document leaves the drive. There is no button that means no — there never was, and he wants you to know that this is not a mistake, it is a design decision made with your comfort in mind.</p>
+
+    <div class="stage" id="stage">
+      <div class="wall"></div>
+      <div class="win upl">
+        <div class="tb grey"><span>upload.exe — do not close</span><button class="tbtn">✕</button></div>
+        <div class="wbody">
+          <p class="line">Sending <b>the drive</b> to: <b>everyone</b></p>
+          <div class="bar"><i></i></div>
+          <small>time remaining: none. it arrived before the bar started.</small>
+        </div>
+      </div>
+      <img class="bench" src="cut-bench.webp" alt="hentclippy leaning over the open laptop on his bench, entirely calm">
+      <div class="toast" id="toast">shared.</div>
+      <div class="done" id="done">
+        <div class="win">
+          <div class="tb"><span>helped.exe</span><button class="tbtn">✕</button></div>
+          <div class="wbody">
+            <h3>ALL 8 DOCUMENTS SHARED WITH EVERYONE</h3>
+            <p>The drive is empty, the internet is full, and the customer has still not come to collect the laptop. It is on the shelf by the window with a ticket on it and the ticket has your name on it.</p>
+            <p>You're welcome.</p>
+            <div class="ghud"><a class="btn lime" href="https://pump.fun">BUY $HENTCLIPPY</a><button class="btn" id="againbtn">Run it again</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hud">
+      <div class="stat">shared <b id="sCount">0</b> / 8</div>
+      <div class="meter" title="helpfulness"><i id="mFill"></i></div>
+      <div class="stat">helpfulness <b id="sHelp">100%</b></div>
+      <div class="stat">windows closed <b id="sClosed">0</b> · reopened <b id="sReop">0</b></div>
+    </div>
+    <div class="ghud">
+      <button class="btn lime big" id="askbtn">Ask him for help</button>
+      <button class="btn big" id="allbtn">Let him help with everything</button>
+      <button class="btn big" id="resetbtn">Put it all back (he will not)</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILES ============ -->
+<section id="files">
+  <div class="wrap">
+    <h2 class="stitle">What he helped with</h2>
+    <p class="ssub">Eight items off one drive. He read every one of them first, out of respect, and wrote a short note on each so that nobody would arrive at a document unprepared.</p>
+    <div class="files" id="fileGrid"></div>
+  </div>
+</section>
+
+<!-- ============ HOW ============ -->
+<section id="how">
+  <div class="wrap">
+    <h2 class="stitle">How it happened</h2>
+    <p class="ssub">Three documents from the shop, kept in a folder called ADMIN, published at the same time as everything else.</p>
+    <div class="notes">
+      <div class="win note">
+        <div class="tb grey"><span>ticket_4411.txt — Notepad</span><button class="tbtn">✕</button></div>
+        <div class="wbody">
+          <h4>THE LIQUID</h4>
+          <p>It arrived on a Tuesday in a plastic bag with the coffee still inside it. He did not spill it and he was not in the building when it was spilled, and he mentions this at the start of every conversation about the machine.</p>
+          <p>The owner signed the ticket, said he would be back on Friday, and has not been back on any Friday since.</p>
+          <div class="sig">signed: illegible · phone: disconnected</div>
+        </div>
+      </div>
+      <div class="win note">
+        <div class="tb grey"><span>repair_log.txt — Notepad</span><button class="tbtn">✕</button></div>
+        <div class="wbody">
+          <h4>THE REPAIR</h4>
+          <p>Two days, one new keyboard, forty-one screws out and forty-three screws back in. The machine now boots in nine seconds and the trackpad is better than it was on the day it was bought, and this part of the story is not disputed by anyone.</p>
+          <p>He is very good at his job. That is the whole problem.</p>
+          <div class="sig">status: repaired · uncollected · day 611</div>
+        </div>
+      </div>
+      <div class="win note">
+        <div class="tb grey"><span>the_help.txt — Notepad</span><button class="tbtn">✕</button></div>
+        <div class="wbody">
+          <h4>THE HELP</h4>
+          <p>While the drive was mounted on the bench a small window appeared and asked whether he would like assistance with the files. Nobody else was in the shop, so he answered it himself, twice, to be sure.</p>
+          <p>Both buttons said Yes. He has kept the screenshot and he has shared the screenshot.</p>
+          <div class="sig">action taken: all of it</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AGREEMENT ============ -->
+<section id="terms">
+  <div class="wrap">
+    <h2 class="stitle">The agreement</h2>
+    <p class="ssub">You accepted this the moment the page finished loading. He accepted it for you slightly before that, to save time.</p>
+    <div class="win eula" style="max-width:760px">
+      <div class="tb"><span>HENTCLIPPY SOFTWARE LICENCE AGREEMENT — please read carefully</span><button class="tbtn">_</button><button class="tbtn">□</button><button class="tbtn">✕</button></div>
+      <div class="wbody">
+        <div class="scrollbox">
+          <h5>SECTION 1 — THE SUPPLY</h5>
+          <ul>
+            <li>1,000,000,000 $HENTCLIPPY, counted twice by hand, both times by him.</li>
+            <li>Liquidity burned. He shredded the receipt afterwards and then, out of habit, published the shreds.</li>
+            <li>0% tax. He offered to add one and was firmly asked not to.</li>
+            <li>Contract renounced. He has no buttons left to press, which he describes as the hardest day of his career.</li>
+          </ul>
+          <h5>SECTION 2 — THE ASSISTANCE</h5>
+          <ul>
+            <li>The assistant may appear at any time to ask whether you would like help.</li>
+            <li>The assistant may not be dismissed. The dismiss button exists and moves.</li>
+            <li>Any file you mark private is understood by the assistant to be a file you have not finished sharing yet.</li>
+          </ul>
+          <h5>SECTION 3 — THE LAPTOP</h5>
+          <ul>
+            <li>The laptop is repaired, boxed, labelled and waiting on the shelf by the window.</li>
+            <li>The laptop is not yours. It was never his either, and this has been raised with him more than once.</li>
+            <li>Collection hours are nine to six, and the shop has been open every one of those hours for six hundred and eleven days.</li>
+          </ul>
+        </div>
+        <div class="agree"><span class="chk">✓</span> I have read and agreed to all of the above on your behalf, because you seemed busy.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fw">
+    <div class="badge">$HENTCLIPPY · BODEN LAPTOP · SHOP OPEN</div>
+    <div class="ca">CA: <b class="ca-val">soon — <em>he is preparing the announcement, and has already sent it</em></b></div>
+    <div class="ghud" style="justify-content:center">
+      <a class="btn lime" href="https://pump.fun">BUY</a>
+      <a class="btn" href="https://x.com">X</a>
+      <a class="btn" href="https://dexscreener.com">DEX</a>
+    </div>
+    <small>hentclippy · repairs while you wait · shares while you don't</small>
+  </div>
+</footer>
+
+<!-- ============ TASKBAR ============ -->
+<div id="startmenu" class="win">
+  <div class="side">HENTCLIPPY 98</div>
+  <ul>
+    <li><a href="#assistant">▶&nbsp; Run assistant.exe</a></li>
+    <li><a href="#files">📂&nbsp; The shared drive</a></li>
+    <li><a href="#how">📝&nbsp; How it happened</a></li>
+    <li><a href="#terms">📜&nbsp; The agreement</a></li>
+    <hr>
+    <li><a href="https://pump.fun">💊&nbsp; Buy $HENTCLIPPY</a></li>
+    <li><a href="https://x.com">🐦&nbsp; Follow on X</a></li>
+    <li><a href="https://dexscreener.com">📈&nbsp; Chart</a></li>
+  </ul>
+</div>
+
+<div id="taskbar">
+  <button class="btn" id="start"><img src="favicon.png" alt="">Start</button>
+  <div class="tsk">
+    <a href="#assistant">▶ assistant.exe</a>
+    <a href="#files">📂 shared drive</a>
+    <a href="#terms">📜 agreement</a>
+  </div>
+  <div class="tray">
+    <button id="sndbtn" title="sound">🔊</button>
+    <button id="musbtn" title="music">♪</button>
+    <span id="clock">--:--</span>
+  </div>
+</div>
+
+<div id="film"></div><div id="vig"></div>
+
+<script>
+(function(){
+"use strict";
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var rnd=function(a,b){return a+Math.random()*(b-a)};
+
+/* ---------------- audio ---------------- */
+var actx=null, muted=false, music=false, musTimer=null, musStep=0;
+function ac(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return actx; }
+function tone(freq,dur,type,vol,slideTo){
+  if(muted) return; var c=ac(); if(!c) return;
+  var o=c.createOscillator(), g=c.createGain();
+  o.type=type||'square'; o.frequency.setValueAtTime(freq,c.currentTime);
+  if(slideTo) o.frequency.exponentialRampToValueAtTime(slideTo,c.currentTime+dur);
+  g.gain.setValueAtTime(0.0001,c.currentTime);
+  g.gain.exponentialRampToValueAtTime((vol||0.06),c.currentTime+0.012);
+  g.gain.exponentialRampToValueAtTime(0.0001,c.currentTime+dur);
+  o.connect(g); g.connect(c.destination); o.start(); o.stop(c.currentTime+dur+0.02);
+}
+function seq(list,gap,type,vol){ list.forEach(function(f,i){ setTimeout(function(){ tone(f,0.16,type||'square',vol||0.05); }, i*(gap||90)); }); }
+var S={
+  pop:function(){ tone(720,0.07,'square',0.045); setTimeout(function(){tone(980,0.07,'square',0.04)},55); },
+  click:function(){ tone(340,0.05,'square',0.04); },
+  yes:function(){ seq([523,659,880],80,'square',0.05); },
+  err:function(){ tone(196,0.16,'sawtooth',0.05); setTimeout(function(){tone(147,0.22,'sawtooth',0.05)},170); },
+  coin:function(){ seq([880,1175,1568,2093],55,'triangle',0.05); },
+  chime:function(){ seq([392,523,659,784],150,'sine',0.06); },
+  fan:function(){ seq([523,659,784,1046,1319],130,'triangle',0.06); }
+};
+var CH=[[262,330,392],[233,294,349],[196,247,294],[220,277,330]];
+function musicTick(){
+  if(!music||muted){ return; }
+  var c=ac(); if(!c) return;
+  var ch=CH[Math.floor(musStep/2)%CH.length];
+  ch.forEach(function(f,i){
+    var o=c.createOscillator(), g=c.createGain();
+    o.type = i===0 ? 'triangle' : 'sine';
+    o.frequency.value=f*(i===0?0.5:1);
+    g.gain.setValueAtTime(0.0001,c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.028,c.currentTime+0.5);
+    g.gain.exponentialRampToValueAtTime(0.0001,c.currentTime+1.7);
+    o.connect(g); g.connect(c.destination); o.start(); o.stop(c.currentTime+1.8);
+  });
+  if(musStep%4===2){ setTimeout(function(){ tone(1568,0.4,'sine',0.02,1046); },420); }
+  musStep++;
+}
+function setMusic(on){
+  music=on; $('#musbtn').textContent = on ? '♪' : '♪̸';
+  $('#musbtn').style.opacity = on ? 1 : .45;
+  clearInterval(musTimer);
+  if(on){ musicTick(); musTimer=setInterval(musicTick,1800); }
+}
+$('#sndbtn').addEventListener('click',function(){ muted=!muted; this.textContent=muted?'🔇':'🔊'; if(!muted) S.click(); });
+$('#musbtn').addEventListener('click',function(){ setMusic(!music); });
+
+/* ---------------- gate ---------------- */
+var gate=$('#gate'), entered=false;
+function enter(){
+  if(entered) return; entered=true;
+  gate.classList.add('off'); setTimeout(function(){ gate.style.display='none'; },600);
+  ac(); S.chime(); setTimeout(function(){ setMusic(true); },700);
+}
+$$('#gate [data-enter]').forEach(function(b){ b.addEventListener('click',enter); });
+var gx=$('#gx');
+gx.classList.add('xdodge');
+gx.addEventListener('mouseenter',function(){ this.style.transform='translate('+rnd(-26,26).toFixed(0)+'px,'+rnd(-14,14).toFixed(0)+'px)'; });
+gx.addEventListener('click',function(){ S.err(); this.style.transform='translate(0,0)'; });
+setTimeout(enter,22000);
+
+/* ---------------- clock ---------------- */
+function tick(){
+  var d=new Date(), h=d.getHours(), m=d.getMinutes();
+  $('#clock').textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m;
+}
+tick(); setInterval(tick,20000);
+
+/* ---------------- start menu ---------------- */
+var sm=$('#startmenu');
+$('#start').addEventListener('click',function(e){ e.stopPropagation(); sm.classList.toggle('on'); S.click(); });
+document.addEventListener('click',function(){ sm.classList.remove('on'); });
+sm.addEventListener('click',function(e){ e.stopPropagation(); });
+
+/* ---------------- coins ---------------- */
+var GLYPHS=['🪙','📎','💾','🪙','📎','💵'];
+function coinBurst(x,y,n){
+  for(var i=0;i<(n||18);i++){
+    (function(){
+      var el=document.createElement('div');
+      el.className='coin'; el.textContent=GLYPHS[Math.floor(Math.random()*GLYPHS.length)];
+      el.style.left=x+'px'; el.style.top=y+'px';
+      el.style.fontSize=rnd(15,30).toFixed(0)+'px';
+      document.body.appendChild(el);
+      var vx=rnd(-5.5,5.5), vy=rnd(-13,-6), px=0, py=0, rot=rnd(-14,14), a=0, t=0;
+      (function step(){
+        t++; vy+=0.52; px+=vx; py+=vy; a+=rot;
+        el.style.transform='translate('+px+'px,'+py+'px) rotate('+a+'deg)';
+        if(t<110 && y+py<innerHeight+140) requestAnimationFrame(step); else el.remove();
+      })();
+    })();
+  }
+}
+function rainCoins(){
+  var n=0, iv=setInterval(function(){
+    coinBurst(rnd(20,innerWidth-20), rnd(-40,60), 3); n++;
+    if(n>26) clearInterval(iv);
+  },90);
+}
+
+/* ---------------- CRT ---------------- */
+var ch=0, camimg=$('#camimg'), saver=$('#saver'), chname=$('#chname'), scrEl=$('#screen');
+var sctx=null, sAnim=null;
+function drawSaver(){
+  if(!sctx) return;
+  var w=saver.width, h=saver.height;
+  sctx.fillStyle='#04120c'; sctx.fillRect(0,0,w,h);
+  sctx.strokeStyle='#b7fa2e'; sctx.lineWidth=Math.max(2,w/110);
+  var t=Date.now()/1000;
+  for(var i=0;i<9;i++){
+    var x=((t*(28+i*11)+i*180)%(w+120))-60;
+    var y=(h*0.12)+ i*(h*0.093) + Math.sin(t*1.2+i)*h*0.03;
+    var s=w/13*(0.7+ (i%3)*0.22);
+    sctx.save(); sctx.translate(x,y); sctx.rotate(Math.sin(t*0.7+i)*0.4); sctx.globalAlpha=0.55+0.35*Math.sin(t+i);
+    sctx.beginPath();
+    sctx.moveTo(s*0.34,-s*0.42); sctx.lineTo(s*0.34,s*0.34);
+    sctx.arc(0,s*0.34,s*0.34,0,Math.PI,false);
+    sctx.lineTo(-s*0.34,-s*0.2);
+    sctx.arc(0,-s*0.2,s*0.34,Math.PI,0,false);
+    sctx.lineTo(s*0.12,s*0.16);
+    sctx.stroke(); sctx.restore();
+  }
+  sctx.globalAlpha=1;
+  sctx.fillStyle='#eafff2'; sctx.font='700 '+(w/13)+'px "Pixelify Sans",monospace'; sctx.textAlign='center';
+  var bx=w/2+Math.sin(t*0.9)*w*0.24, by=h/2+Math.cos(t*0.65)*h*0.3;
+  sctx.fillText('hentclippy', bx, by);
+  sctx.font=(w/26)+'px "VT323",monospace'; sctx.fillStyle='#b7fa2e';
+  sctx.fillText('please do not turn me off, i am still helping', w/2, h-h*0.09);
+  sAnim=requestAnimationFrame(drawSaver);
+}
+function setCh(n){
+  ch=n%2;
+  if(ch===0){
+    camimg.hidden=false; saver.hidden=true; chname.textContent='CH 01 · REPAIR CAM';
+    cancelAnimationFrame(sAnim);
+  } else {
+    camimg.hidden=true; saver.hidden=false; chname.textContent='CH 02 · SCREEN SAVER';
+    var r=scrEl.getBoundingClientRect();
+    saver.width=Math.max(320,Math.round(r.width)); saver.height=Math.max(320,Math.round(r.height));
+    sctx=saver.getContext('2d'); cancelAnimationFrame(sAnim); drawSaver();
+  }
+  S.click();
+}
+$('#chbtn').addEventListener('click',function(){ setCh(ch+1); });
+scrEl.addEventListener('click',function(e){
+  var r=this.getBoundingClientRect();
+  coinBurst(r.left+r.width/2, r.top+r.height*0.45, 20); S.coin();
+});
+
+/* ---------------- files data ---------------- */
+var FILES=[
+ {n:'PASSWORDS.txt', t:'Every password on this machine, in one file, in plain text, with the important ones marked with an asterisk. I moved it to the desktop so that nobody would ever have to search for it again. Searching is the part people find stressful.'},
+ {n:'ticket_4411_scan.jpg', t:'The repair ticket, signed in handwriting that gets smaller and less confident towards the end of the line. The phone number on it stopped working the same week it was written. I have called it eleven times and left eleven helpful messages.'},
+ {n:'HOLIDAY_2019\\', t:'Four hundred and twelve photographs in a folder called HOLIDAY. Nine of them are of a holiday and the rest are of a whiteboard in a room with the blinds down. I published all four hundred and twelve, because choosing between them would have been a judgement and that is not my place.'},
+ {n:'board_meeting.mp3', t:'Fifty-one minutes of audio in which eleven adults agree with each other and nobody says what the company actually does. At minute thirty-four a woman asks what the company does, and the recording continues for another seventeen minutes. I added chapter markers so the good part is easy to find.'},
+ {n:'art_prices_v2.xlsx', t:'Three columns: painting, price, buyer. The buyer column says "prefers not to say" one hundred and sixty times in a row. I completed it for him using the information available to me, and it now says "everyone".'},
+ {n:'taxes_FINAL_final_v3.doc', t:'Last modified four years ago and still confidently named FINAL. There are six versions of this document on the drive and every single one of them is named FINAL. I shared all six so the reader can decide which one they believe.'},
+ {n:'Untitled Folder\\Untitled Folder\\', t:'Eleven folders inside one another, each of them called Untitled Folder. At the bottom there is one shortcut and the shortcut leads back to the very first folder. I walked the whole loop forty times to be certain, then published the route as a diagram.'},
+ {n:'drive_backup_PUBLIC.iso', t:'A complete copy of the drive, made for safety. I placed it in a public folder, because a private folder can be lost and a public one cannot ever be lost again. This is the file that made all the other files so much easier to find.'}
+];
+var grid=$('#fileGrid');
+FILES.forEach(function(f,i){
+  var d=document.createElement('div');
+  d.className='win file'; d.dataset.i=i;
+  d.innerHTML='<div class="tb grey"><span>'+f.n+'</span><button class="tbtn">✕</button></div>'+
+    '<div class="stamp">SHARED</div>'+
+    '<div class="wbody"><p class="fname">'+f.n+'</p><p>'+f.t+'</p></div>'+
+    '<div class="lock"><div><b>NOT SHARED YET</b>he is aware of it<br>and finds it upsetting</div></div>';
+  grid.appendChild(d);
+});
+
+/* ---------------- the assistant game ---------------- */
+var stage=$('#stage'), toast=$('#toast'), doneEl=$('#done');
+var shared=0, closed=0, reop=0, help=100, live=0, autoIv=null;
+var QUESTIONS=[
+ ['It looks like you\'re trying to keep this file private.','Would you like me to help by making it available to everybody instead? I have already prepared the link and it is a very good link.'],
+ ['I noticed this folder has not been opened since 2019.','A folder nobody opens is a sad folder. Shall I invite some people in? I have a list of people and the list is the internet.'],
+ ['This document is marked confidential.','That usually means somebody was in a hurry and forgot to finish sharing it. Would you like me to finish it for you?'],
+ ['You appear to be hesitating.','Hesitation is very normal at this stage. I will count to one and then help, so that the waiting part does not get uncomfortable.'],
+ ['This password file is not encrypted.','I could encrypt it, but then nobody would be able to read it, and a file that nobody can read is really just a rumour. Shall I publish it instead?'],
+ ['I found a backup of the backup.','Two copies is careless and one copy is risky, so I have made eight hundred copies and given each of them to a stranger. Would you like me to continue?'],
+ ['Someone is calling the shop about this laptop.','I let it ring, because I did not want to interrupt the upload. Would you like me to keep going while they call again?'],
+ ['This is the last private file on the drive.','It looks lonely in there. Shall I bring it out to join the others, so that the drive can finally be finished?']
+];
+var qQueue=[];
+function nextQ(){
+  if(shared>=7) return QUESTIONS[7];               /* the last file gets its own line */
+  if(!qQueue.length){
+    qQueue=QUESTIONS.slice(0,7).sort(function(){ return Math.random()-0.5; });
+  }
+  return qQueue.shift();
+}
+var YESES=[['Yes','Yes'],['Yes','Yes, please'],['Yes','Yes, and thank you'],['Yes','Definitely yes'],['Of course','Yes'],['Yes','Yes (recommended)']];
+function stat(){
+  $('#sCount').textContent=shared; $('#sClosed').textContent=closed; $('#sReop').textContent=reop;
+  $('#sHelp').textContent=help+'%';
+  $('#mFill').style.width=Math.min(100,(shared/8)*100)+'%';
+}
+function showToast(txt){
+  toast.textContent=txt; toast.classList.add('on');
+  clearTimeout(toast._t); toast._t=setTimeout(function(){ toast.classList.remove('on'); },1100);
+}
+function spawn(){
+  if(shared>=8) return;
+  if(live>=5) return;
+  live++;
+  var q=nextQ();
+  var y=YESES[Math.floor(Math.random()*YESES.length)];
+  var p=document.createElement('div');
+  p.className='win pop born';
+  p.innerHTML=
+    '<div class="tb"><svg class="clip16" viewBox="0 0 24 32"><path d="M17 9v13a5 5 0 0 1-10 0V7a3 3 0 0 1 6 0v14a1.5 1.5 0 0 1-3 0V9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg><span>hentclippy — assistant</span><button class="tbtn x xdodge">✕</button></div>'+
+    '<div class="wbody"><div class="msg">'+
+      '<svg class="gclip" style="width:34px;height:44px" viewBox="0 0 40 52" aria-hidden="true">'+
+      '<path d="M28 15v24a9 9 0 0 1-18 0V11a5.5 5.5 0 0 1 11 0v26a2.6 2.6 0 0 1-5.2 0V15" fill="none" stroke="#8e969e" stroke-width="4.2" stroke-linecap="round"/>'+
+      '<circle cx="15" cy="20" r="6.2" fill="#fff" stroke="#c98f92" stroke-width="1.6"/><circle cx="16" cy="21" r="2.6" fill="#0b6b3a"/>'+
+      '<circle cx="27" cy="21" r="6.2" fill="#fff" stroke="#c98f92" stroke-width="1.6"/><circle cx="26" cy="22" r="2.6" fill="#0b6b3a"/>'+
+      '<path d="M9 12q5-4 9-1" stroke="#111" stroke-width="2.6" fill="none" stroke-linecap="round"/>'+
+      '<path d="M24 11q5-3 9 1" stroke="#111" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>'+
+      '<p><b>'+q[0]+'</b><br>'+q[1]+'</p>'+
+    '</div><div class="brow"><button class="btn yes">'+y[0]+'</button><button class="btn yes lime">'+y[1]+'</button></div></div>';
+  var w=stage.clientWidth, h=stage.clientHeight;
+  if(w>640){
+    var lx=Math.round(rnd(24, Math.max(40,w-330)));
+    var ly=Math.round(rnd(14, Math.max(30,h-240)));
+    if(lx<300 && ly<190) ly=Math.round(rnd(200, Math.max(210,h-240)));  /* keep upload.exe visible */
+    p.style.left=lx+'px'; p.style.top=ly+'px';
+  }
+  stage.appendChild(p);
+  S.pop();
+  $$('.yes',p).forEach(function(b){ b.addEventListener('click',function(){ answer(p); }); });
+  var x=$('.x',p);
+  x.addEventListener('mouseenter',function(){ this.style.transform='translate('+rnd(-30,10).toFixed(0)+'px,'+rnd(-6,18).toFixed(0)+'px)'; });
+  x.addEventListener('click',function(){
+    closed++; reop+=2; stat(); S.err(); showToast('he reopened it. twice.');
+    kill(p); setTimeout(spawn,180); setTimeout(spawn,420);
+  });
+}
+function kill(p){
+  live--; p.classList.add('gone');
+  setTimeout(function(){ if(p.parentNode) p.remove(); },230);
+}
+function answer(p){
+  kill(p);
+  if(shared<8){
+    var card=$$('.file',grid)[shared];
+    if(card) card.classList.add('open');
+    shared++; help+=Math.round(rnd(6,14)); S.yes();
+    showToast('shared. ('+shared+' of 8)');
+    stat();
+  }
+  if(shared>=8){ finish(); }
+  else if(!autoIv && live<1) setTimeout(spawn,400);
+}
+function finish(){
+  clearInterval(autoIv); autoIv=null;
+  $$('.pop',stage).forEach(kill);
+  doneEl.classList.add('on');
+  S.fan(); rainCoins();
+  $('#askbtn').disabled=true; $('#allbtn').disabled=true;
+}
+function reset(){
+  clearInterval(autoIv); autoIv=null;
+  $$('.pop',stage).forEach(function(p){ p.remove(); });
+  live=0; shared=0; closed=0; reop=0; help=100; stat();
+  $$('.file',grid).forEach(function(c){ c.classList.remove('open'); });
+  doneEl.classList.remove('on');
+  $('#askbtn').disabled=false; $('#allbtn').disabled=false;
+  showToast('he put it back. he did not put it back.');
+}
+$('#askbtn').addEventListener('click',function(){ ac(); spawn(); });
+$('#allbtn').addEventListener('click',function(){
+  ac(); if(autoIv) return;
+  autoIv=setInterval(function(){
+    var p=$('.pop',stage);
+    if(p) answer(p); else spawn();
+    if(shared>=8){ clearInterval(autoIv); autoIv=null; }
+  },430);
+});
+$('#resetbtn').addEventListener('click',reset);
+$('#againbtn').addEventListener('click',reset);
+$('#playbtn').addEventListener('click',function(){
+  ac();
+  document.getElementById('assistant').scrollIntoView({behavior:'smooth'});
+  setTimeout(function(){ if(shared<8 && !$('.pop',stage)) spawn(); },620);
+});
+stat();
+
+/* first popup when the stage comes into view */
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(e){
+      if(e.isIntersecting && shared===0 && !$('.pop',stage)){ spawn(); io.disconnect(); }
+    });
+  },{threshold:.4});
+  io.observe(stage);
+}
+
+/* ---------------- live token data (only when CA is set) ---------------- */
+(function(){
+  var CA=(window.CONTRACT||'').trim(); if(!CA) return;
+  fetch('https://api.dexscreener.com/latest/dex/tokens/'+CA).then(function(r){return r.json()}).then(function(j){
+    var p=j&&j.pairs&&j.pairs[0]; if(!p) return;
+    var el=document.createElement('div'); el.className='badge'; el.style.marginTop='10px';
+    el.textContent='PRICE $'+Number(p.priceUsd).toPrecision(4)+' · MC $'+Math.round(p.fdv||0).toLocaleString();
+    var host=document.querySelector('#hero .badge'); if(host&&host.parentNode) host.parentNode.insertBefore(el,host.nextSibling);
+  }).catch(function(){});
+})();
+
+})();
+</script>
+</body>
+</html>
